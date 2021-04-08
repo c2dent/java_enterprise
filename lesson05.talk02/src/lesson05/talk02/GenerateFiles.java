@@ -56,17 +56,17 @@ public class GenerateFiles {
 		
 		String text = generateMultiSentence(size, words);
 		text = text + new String(new char[size - text.getBytes().length]).replace("\0", " ");
-		System.out.println(text);
+
 		for (int i = 0; i < n; i++) {
 			
 			try(RandomAccessFile raf = new RandomAccessFile(new File(path + "/text" + (i + 1) + ".txt"), "rws")) {
-				//raf.setLength(size);
+				raf.setLength(size);
 				raf.write(text.getBytes());
 			} catch (IOException e) {
 				throw new IOException("Запис файла прервано");
 			}
 		}
 		
-		System.out.println("Файлы генерированый!");
+		System.out.println("Файлы сгенерировано!");
 	}
 }
