@@ -14,6 +14,7 @@ public class Main {
             dateOfBirth = LocalDate.parse(input);
         } catch (DateTimeParseException e) {
             System.out.println("Вы неправильно ввели дату");
+            System.exit(0);
         }
         switch (dateOfBirth.getDayOfWeek()) {
             case MONDAY, THURSDAY, WEDNESDAY, TUESDAY, FRIDAY -> System.out.println("Вы родились в будний день");
